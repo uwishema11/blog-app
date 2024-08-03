@@ -46,7 +46,11 @@ This project is a simple blog application that provides user authentication, blo
 
 ## Project Structure
 
-`plaintext
+## Project Structure
+
+## Project Structure
+
+```plaintext
 .
 ├── src
 │   ├── controllers      # Express controllers for handling requests
@@ -60,15 +64,17 @@ This project is a simple blog application that provides user authentication, blo
 │   ├── services         # Express services for API 
 │   ├── utils            # Utility functions
 │   ├── validations      # Validation schema for requests
-│   └── app.js           #application file
+│   ├── app.js           # Application file
 │   └── index.js         # Main application file
-├── .babel.config.ts     # babel configuration to be able to use es6 features
+├── .babel.config.ts     # Babel configuration to enable ES6 features
 ├── .eslintrc.json       # ESLint configuration
-├── .gitignore           # gitignore files
+├── .gitignore           # Gitignore files
 ├── .prettierrc          # Prettier configuration
-├── .sequelizerc         # sequezlize configuration
+├── .sequelizerc         # Sequelize configuration
 ├── package.json         # Project metadata and dependencies
-├── README.md            # Project documentation
+└── README.md            # Project documentation
+
+
 
 ## Setup and Running the Project
 
@@ -172,12 +178,12 @@ npm install
 
 - **Auth Middleware:** 
   - Verifies JWT token for protected routes.
-
-- **Error Handling Middleware:** 
-  - Catches and handles errors centrally.
+ 
 
 ### Utilities
 
 - **Helpers:** 
-  - Utility functions for tasks like password hashing and token generation.
+  - functions for tasks like password hashing and token generation.
+- **utils:** 
+  - Utility functions for Catching and handles errors centrally..
 
