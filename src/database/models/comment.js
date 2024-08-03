@@ -6,7 +6,7 @@ export default (sequelize) => {
       Comment.belongsTo(models.User, {
         // Use singular 'User'
         foreignKey: 'userId',
-        as: 'user', // Use singular 'user'
+        as: 'author', // Use singular 'user'
         onDelete: 'CASCADE',
       });
       Comment.belongsTo(models.Blog, {

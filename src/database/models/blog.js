@@ -4,7 +4,7 @@ export default (sequelize) => {
   class Blog extends Model {
     static associate(models) {
       // Define associations here
-      Blog.belongsTo(models.User, { foreignKey: 'userId', as: 'user' });
+      Blog.belongsTo(models.User, { foreignKey: 'userId', as: 'author' });
       Blog.hasMany(models.Comment, {
         foreignKey: 'blogId',
         as: 'comments',

@@ -15,7 +15,7 @@ const findBlogById = async (id) => {
       {
         model: models.User,
         attributes: ['firstName'],
-        as: 'user',
+        as: 'author',
       },
       {
         model: models.Comment,
@@ -25,7 +25,7 @@ const findBlogById = async (id) => {
           {
             model: models.User,
             attributes: ['firstName'],
-            as: 'user',
+            as: 'author',
           },
         ],
       },

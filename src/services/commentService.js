@@ -10,7 +10,7 @@ const findAllComments = async () => {
       {
         model: models.User,
         attributes: ['firstName'],
-        as: 'user',
+        as: 'author',
       },
       {
         model: models.Blog,

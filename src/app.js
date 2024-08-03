@@ -23,10 +23,10 @@ app.use(express.static(`${__dirname}/public`));
 
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/api/v1/user', userRouter);
-app.use('/api/v1/blogs', blogRouter);
+app.use('/api/auth', userRouter);
+app.use('/api/blogs', blogRouter);
 
-app.use('/api/v1/blogs', commentRouter);
+app.use('/api/comments', commentRouter);
 
 app.all('*', (req, res, next) => {
   next(new appError(`Can't find ${req.originalUrl} on this server`, 404));
