@@ -1,5 +1,5 @@
-import app from './app';
-import sequelize from './database/config/db';
+import app from './app.js';
+import sequelize from './database/config/db.js';
 
 const PORT = 3000;
 const connectToDatabase = async () => {
