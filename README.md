@@ -46,10 +46,6 @@ This project is a simple blog application that provides user authentication, blo
 
 ## Project Structure
 
-## Project Structure
-
-## Project Structure
-
 ```plaintext
 .
 ├── src
@@ -73,8 +69,7 @@ This project is a simple blog application that provides user authentication, blo
 ├── .sequelizerc         # Sequelize configuration
 ├── package.json         # Project metadata and dependencies
 └── README.md            # Project documentation
-
-
+```
 
 ## Setup and Running the Project
 
