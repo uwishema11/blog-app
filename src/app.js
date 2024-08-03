@@ -1,6 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import helmet from 'helmet';
+import cors from 'cors'
 import errorHandler from './utils/errorController';
 import appError from './utils/appError';
 import userRouter from './routes/userRouter';
@@ -17,7 +18,7 @@ app.use(helmet()); // Helmet helps secure Express apps by setting various HTTP h
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
-
+app.use(cors());
 app.use(express.json());
 app.use(express.static(`${__dirname}/public`));
 

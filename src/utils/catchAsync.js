@@ -1,3 +1,3 @@
-export default (fn) => (req, res, _next) => {
-  fn(req, res, _next).catch(_next);
+export default (fn) => (req, res, next) => {
+  fn(req, res, next).catch(next);
 };

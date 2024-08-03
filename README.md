@@ -1,7 +1,6 @@
 # Blog Application
 
-A simple blog application that allows users to register, log in, create, edit, delete, and comment on blog posts. This project was developed as part of the QT Practical Test for Software Developers (Interns).
-
+A simple blog application that allows users to register, log in, create, edit, delete, and comment on blog posts. 
 ## Table of Contents
 
 - [Overview](#overview)
