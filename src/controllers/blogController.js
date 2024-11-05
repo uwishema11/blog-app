@@ -4,16 +4,18 @@ import catchAsync from '../utils/catchAsync';
 import { handleError, successResponse } from '../utils/response';
 
 // adding a new blog
-const addBlog = catchAsync(async (req, res) => {
+const addBlog = catchAsync(async (req, res,next) => {
   //  data validations
   const validations = blogSchema.validate(req.body);
   const { error } = validations;
   if (error) {
+        console.log(error.message);
     return handleError(res, 400, error.message);
+    console.log(error.message)
   }
   const result = {
     ...req.body,
-    userId: req.user.id,
+    userId: 1,
   };
   const newBlog = await Services.createBlog(result);
   return successResponse(res, 201, 'Blog added succesfully', newBlog);
@@ -31,7 +33,7 @@ const getAllBlogs = catchAsync(async (req, res) => {
   return successResponse(res, 200, 'All Blogs', data);
 });
 
-// Fetching a single blog
+
 
 const getSingleBlog = catchAsync(async (req, res) => {
   const blog = req.params.blogId;

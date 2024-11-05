@@ -8,20 +8,16 @@ import catchAsync from '../utils/catchAsync';
 
 const registerUser = catchAsync(async (req, res, next) => {
   const { email, password } = req.body;
-
-  // Validate request body against the schema
   const { error } = userSchema.validate(req.body);
   if (error) {
     return handleError(res, 400, error.details[0].message);
   }
 
-  // Check if the user already exists
   const isUser = await userService.findUserByEmail(email);
   if (isUser) {
     return handleError(res, 400, 'User already exists');
   }
 
-  // Hash password
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(password, salt);
 
@@ -32,10 +28,33 @@ const registerUser = catchAsync(async (req, res, next) => {
 
   const newUser = await userService.addUser(body);
 
-  // Remove password from the result before sending response
   newUser.password = undefined;
 
   successResponse(res, 201, 'User registered successfully', newUser);
+});
+
+
+export const fetchAllUsers = catchAsync(async (req, res) => {
+  const data = await userService.getAllUsers();
+    const { error } = data;
+    if (error) {
+       return handleError(res, 404, 'Error while fetching data ! Please try again.');
+    }
+
+    return successResponse(res, 200, 'All Users', data);
+});
+
+const checkUser = catchAsync(async (req, res) => {
+  const { email } = req.body;
+  if (!email) {
+    return handleError(res, 400, 'Please fill in the missing fields');
+  }
+  const user = await userService.findUserByEmail(email);
+  if (!user) {
+    return handleError(res, 401, 'user does not exists. Please register and try again later.');
+  } else {
+    successResponse(res, 200, 'successfully', user);
+  }
 });
 
 const login = catchAsync(async (req, res) => {
@@ -50,11 +69,10 @@ const login = catchAsync(async (req, res) => {
     return handleError(
       res,
       401,
-      'Invalid email or password. Please try again with the correct credentials.',
+      'user with the provided email doesnt not exists! please register ',
     );
   }
 
-  // Compare passwords
   const matchedPassword = await bcrypt.compare(password, user.password);
   if (!matchedPassword) {
     return handleError(
@@ -96,4 +114,4 @@ const updateMe = catchAsync(async (req, res) => {
   successResponse(res, 200, 'User profile updated successfully', updatedUser);
 });
 
-export { registerUser, updateMe, login, logout };
+export { registerUser, updateMe, checkUser, login, logout };

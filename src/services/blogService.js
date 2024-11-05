@@ -5,7 +5,15 @@ const createBlog = async (blogInformation) => {
   return createdItem;
 };
 const findAllBlogs = async () => {
-  const allBlogs = await models.Blog.findAll();
+  const allBlogs = await models.Blog.findAll({
+    include: [
+      {
+        model: models.User,
+        attributes: ['firstName'],
+        as: 'author',
+      },
+    ],
+  });
   return allBlogs;
 };
 const findBlogById = async (id) => {

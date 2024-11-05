@@ -1,7 +1,7 @@
 # Blog Application
 
 A simple blog application that allows users to register, log in, create, edit, delete, and comment on blog posts. 
-## Table of Contents
+## Table of Content
 
 - [Overview](#overview)
 - [Technologies Used](#technologies-used)

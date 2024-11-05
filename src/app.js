@@ -24,7 +24,7 @@ app.use(express.static(`${__dirname}/public`));
 
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/api/auth', userRouter);
+app.use('/api/users', userRouter);
 app.use('/api/blogs', blogRouter);
 
 app.use('/api/comments', commentRouter);

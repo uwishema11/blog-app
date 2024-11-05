@@ -4,10 +4,10 @@ import protect from '../middleware/auth';
 
 const blogRouter = express.Router();
 
-blogRouter.post('/create', protect,blogController.addBlog);
-blogRouter.get('/',protect, blogController.getAllBlogs);
-blogRouter.get('/:blogId', protect,blogController.getSingleBlog);
-blogRouter.delete('/delete/:blogId', protect, blogController.deleteSingleBlog);
-blogRouter.patch('/update/:blogId', protect, blogController.updateBlog);
+blogRouter.post('/create',blogController.addBlog);
+blogRouter.get('/', blogController.getAllBlogs);
+blogRouter.get('/:blogId',blogController.getSingleBlog);
+blogRouter.delete('/delete/:blogId', blogController.deleteSingleBlog);
+blogRouter.patch('/update/:blogId', blogController.updateBlog);
 
 export default blogRouter;

@@ -6,7 +6,7 @@ const addUser = async (newUser) => {
 };
 
 const getAllUsers = async () => {
-  const users = await models.User.find();
+  const users = await models.User.findAll();
   return users;
 };
 
