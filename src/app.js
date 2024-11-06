@@ -2,7 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors'
-import errorHandler from './utils/errorController';
+import errorHandler from './utils/errorController.js';
 import appError from './utils/appError';
 import userRouter from './routes/userRouter';
 import blogRouter from './routes/blogRouter';
