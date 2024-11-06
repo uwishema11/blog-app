@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel  src/index.js -d build",
-    "dev": "nodemon --exec babel-node src/index.js",
+    "build": "babel ./src/index.js -d build",
+    "start": "cross-env NODE_ENV=production babel-node ./src/index.js",
+    "dev": "cross-env NODE_ENV=development nodemon --exec babel-node ./src/index.js",
     "migration": "npx sequelize-cli db:migrate",
     "down": "npx sequelize-cli db:migrate:undo",
     "lint": "eslint .",
     "lint-fix": "eslint --fix .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "postdeploy": "npx sequelize-cli db:migrate"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +21,7 @@
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "helmet": "^7.1.0",
